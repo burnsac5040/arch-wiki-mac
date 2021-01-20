@@ -1,0 +1,48 @@
+#!/bin/bash
+
+wikisearch="/usr/local/bin/wiki-search"
+source $wikisearch --source
+
+if [[ ! -d "$html_path" ]]; then
+  echo "brew install lynx"
+    exit 1
+fi
+
+if [[ -z "$wiki_browser" ]]; then
+    which w3m &> /dev/null && wiki_browser="w3m"
+fi
+
+if [[ -z "$wiki_browser" ]]; then
+    echo "Install xdg-utils or export the \$wiki_browser variable first"
+    exit 1
+fi
+
+launch_browser() {
+    real_name=$(rg " $1\$" "$wiki_path/index" | cut -d ' ' -f 1)
+    exec $wiki_browser "$html_path/$real_name.html"
+}
+
+case "$1" in
+    [0-9])
+        if [ ! -f "$tmp" ]; then
+            echo "Error: no previous query"
+            exit 1
+        fi
+        full_number="$(tail -n +2 < $tmp | rg "^$1" | cut -f 3)"
+        launch_browser "$full_number"
+        ;;
+    [0-9]*)
+        full_number="$(almost_file "$1")"
+        launch_browser "$full_number"
+        ;;
+    *)
+        save_search $@
+        if [[ $has_dialog ]]; then
+            selection=$(dialog_hits 3>&1 1>&2 2>&3 | tee /dev/stderr)
+            echo -en "\ec"
+            [[ $selection ]] && exec bash $(basename $0) $selection
+        else
+            show_hits
+        fi
+        ;;
+esac
