@@ -25,8 +25,8 @@ make install # No sudo
 ### Installation by untarring:
 
 ```sh
-git clone https://github.com/burnsac5040/arch-wiki-mac.git
-cd arch-wiki-mac
+git clone https://github.com/burnsac5040/arch-wiki-tar.git
+cd arch-wiki-tar
 tar -xzf arch-wiki.tar.gz -C /usr/local --strip-components 2
 ```
 
