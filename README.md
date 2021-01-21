@@ -1,5 +1,8 @@
 ## `arch-wiki-docs` and `arch-wiki-lite` - MacOS Compatible
 
+#### Demo
+![arch-wiki demo](https://lucasburns.xyz/images/wiki.gif)
+
 ### Requirements:
   - `brew install newt ripgrep w3m`
   - `cargo install huniq`
