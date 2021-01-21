@@ -23,14 +23,14 @@ which dialog &> /dev/null && has_dialog="true"
 
 ztext() {  # full number, regex -> text
     if [[ -t 1 && ( ! $PAGER || "$PAGER" == "less" ) ]]; then
-        echo -e "$(zgrep "^$1:" "$wikiball" | cut -d: -f2- | \
+        echo -e "$(rg -z "^$1:" "$wikiball" | cut -d: -f2- | \
         fold -s -w $size | sed -e 's|\\|\\\\|g' \
         -e "s/@@b/\\${COLOR5}/g" -e "s/@@w/\\${ENDC}/g" \
         -e "s/$2/\\${COLOR1}&\\${ENDC}/gi")" | less -RM
     elif [[ -t 1 ]]; then
-        zgrep "^$1:" "$wikiball" | cut -d: -f2- | sed 's/@@[bw]//g' | ${PAGER:-less}
+        rg -z "^$1:" "$wikiball" | cut -d: -f2- | sed 's/@@[bw]//g' | ${PAGER:-less}
     else
-        zgrep "^$1:" "$wikiball" | cut -d: -f2- | sed 's/@@[bw]//g'
+        rg -z "^$1:" "$wikiball" | cut -d: -f2- | sed 's/@@[bw]//g'
     fi
 }
 
