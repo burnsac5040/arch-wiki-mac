@@ -4,7 +4,7 @@ wikisearch="/usr/local/bin/wiki-search"
 source $wikisearch --source
 
 if [[ ! -d "$html_path" ]]; then
-  echo "brew install lynx"
+  echo "brew install w3m"
     exit 1
 fi
 
@@ -13,7 +13,8 @@ if [[ -z "$wiki_browser" ]]; then
 fi
 
 if [[ -z "$wiki_browser" ]]; then
-    echo "Install xdg-utils or export the \$wiki_browser variable first"
+    echo "Install w3m or export the \$wiki_browser variable first"
+    echo "export wiki_browser='open' will open it in your browser"
     exit 1
 fi
 

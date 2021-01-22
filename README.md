@@ -1,7 +1,7 @@
 ## `arch-wiki-docs` and `arch-wiki-lite` - MacOS Compatible
 
 #### Demo
-![arch-wiki demo](https://lucasburns.xyz/images/wiki.gif)
+![arch-wiki demo](https://lucasburns.xyz/gallery/media/large/wiki.gif)
 
 ### Requirements:
   - `brew install newt ripgrep w3m`
