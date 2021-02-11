@@ -19,7 +19,7 @@ One can modify the `wiki-search` script if they instead would like to use:
 ### Installation:
 
 ```sh
-git clone https://github.com/burnsac5040/arch-wiki-mac.git
+git clone https://github.com/lmburns/arch-wiki-mac.git
 cd arch-wiki-mac
 make install # No sudo
 ```
@@ -28,7 +28,7 @@ make install # No sudo
 ### Installation by untarring:
 
 ```sh
-git clone https://github.com/burnsac5040/arch-wiki-tar.git
+git clone https://github.com/lmburns/arch-wiki-tar.git
 cd arch-wiki-tar
 tar -xzf arch-wiki.tar.gz -C /usr/local --strip-components 2
 ```
@@ -47,7 +47,7 @@ mv build_wiki /usr/local/share/doc/arch-wiki/text
 ### `arch-wiki-docs` `pkgbuild`
 ```sh
 brew install makepkg
-git clone https://github.com/burnsac5040/arch-wiki-mac.git
+git clone https://github.com/lmburns/arch-wiki-mac.git
 cd arch-wiki-mac/docs
 makepkg -d
 ```
@@ -59,7 +59,7 @@ Move the files to wherever you want to store the wiki.
 
 ```sh
 brew install makepkg
-git clone https://github.com/burnsac5040/arch-wiki-mac.git
+git clone https://github.com/lmburns/arch-wiki-mac.git
 cd arch-wiki-mac/lite
 makepkg -d
 tar -xzf arch-wiki-lite-20200527-1-any.pkg.tar.gz | installer -pkg -target /
