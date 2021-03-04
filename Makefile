@@ -24,6 +24,3 @@ install:
 	@echo
 	@echo "arch-wiki-docs installed successfully"
 	@echo
-
-test:
-	make -C tests
